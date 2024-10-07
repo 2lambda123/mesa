@@ -1,6 +1,7 @@
 """
 Test the BatchRunner
 """
+
 import unittest
 from functools import reduce
 from multiprocessing import cpu_count, freeze_support

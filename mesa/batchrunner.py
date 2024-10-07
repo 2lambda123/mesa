@@ -4,6 +4,7 @@ Batchrunner
 
 A single class to manage a batch run or parameter sweep of a given model.
 """
+
 import copy
 import itertools
 import random
@@ -371,13 +372,13 @@ class FixedBatchRunner:
         # Collects data from datacollector object in model
         if results is not None:
             if results.model_reporters is not None:
-                self.datacollector_model_reporters[
-                    model_key
-                ] = results.get_model_vars_dataframe()
+                self.datacollector_model_reporters[model_key] = (
+                    results.get_model_vars_dataframe()
+                )
             if results.agent_reporters is not None:
-                self.datacollector_agent_reporters[
-                    model_key
-                ] = results.get_agent_vars_dataframe()
+                self.datacollector_agent_reporters[model_key] = (
+                    results.get_agent_vars_dataframe()
+                )
 
         return (
             getattr(self, "model_vars", None),
@@ -717,13 +718,13 @@ class BatchRunnerMP(BatchRunner):  # pragma: no cover
                     self.agent_vars[agent_key] = reports
             if hasattr(model, "datacollector"):
                 if model.datacollector.model_reporters is not None:
-                    self.datacollector_model_reporters[
-                        model_key
-                    ] = model.datacollector.get_model_vars_dataframe()
+                    self.datacollector_model_reporters[model_key] = (
+                        model.datacollector.get_model_vars_dataframe()
+                    )
                 if model.datacollector.agent_reporters is not None:
-                    self.datacollector_agent_reporters[
-                        model_key
-                    ] = model.datacollector.get_agent_vars_dataframe()
+                    self.datacollector_agent_reporters[model_key] = (
+                        model.datacollector.get_agent_vars_dataframe()
+                    )
 
         # Make results consistent
         if len(self.datacollector_model_reporters) == 0:

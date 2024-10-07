@@ -4,6 +4,7 @@ Modular Canvas Rendering
 
 Module for visualizing model objects in grid cells.
 """
+
 from collections import defaultdict
 
 from mesa.visualization.ModularVisualization import VisualizationElement

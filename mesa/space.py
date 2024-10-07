@@ -12,6 +12,7 @@ ContinuousSpace: a two-dimensional space where each agent has an arbitrary
                  position of `float`'s.
 NetworkGrid: a network where each node contains zero or more agents.
 """
+
 # Instruction for PyLint to suppress variable name errors, since we have a
 # good reason to use one-character variable names for x and y.
 # pylint: disable=invalid-name
@@ -140,18 +141,15 @@ class _Grid:
         self._empties_built = True
 
     @overload
-    def __getitem__(self, index: int) -> list[GridContent]:
-        ...
+    def __getitem__(self, index: int) -> list[GridContent]: ...
 
     @overload
     def __getitem__(
         self, index: tuple[int | slice, int | slice]
-    ) -> GridContent | list[GridContent]:
-        ...
+    ) -> GridContent | list[GridContent]: ...
 
     @overload
-    def __getitem__(self, index: Sequence[Coordinate]) -> list[GridContent]:
-        ...
+    def __getitem__(self, index: Sequence[Coordinate]) -> list[GridContent]: ...
 
     def __getitem__(
         self,
@@ -425,11 +423,9 @@ class _Grid:
         """
         return list(self.iter_cell_list_contents(cell_list))
 
-    def place_agent(self, agent: Agent, pos: Coordinate) -> None:
-        ...
+    def place_agent(self, agent: Agent, pos: Coordinate) -> None: ...
 
-    def remove_agent(self, agent: Agent) -> None:
-        ...
+    def remove_agent(self, agent: Agent) -> None: ...
 
     def move_agent(self, agent: Agent, pos: Coordinate) -> None:
         """Move an agent from its current position to a new position.
