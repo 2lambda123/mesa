@@ -25,6 +25,7 @@ is used so as to allow the method to access Agent internals, as well as to
 potentially render a cell based on several values (e.g. an Agent grid and a
 Patch value grid).
 """
+
 # Pylint instructions: allow single-character variable names.
 # pylint: disable=invalid-name
 
